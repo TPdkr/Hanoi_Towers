@@ -47,15 +47,13 @@ object TowersService {
 
     //funtion for executing exactly one turn
     fun turn() {
-        var done = true//is the turn done? condition for loop
         output(towers)//we print the towers
         println("Choose the tower from which to get the disk")
         do {
             val inp = safeInput()
             val from = inp.first//index of tower
             val to = inp.second//destination
-            done = towers[from].putTo(towers[to])//we attempt move to a new tower
-        } while (!done)
+        } while (!towers[from].putTo(towers[to]))//we attempt move to a new tower
     }
 
     fun game() {
